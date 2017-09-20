@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html><!-- Head of the Root -->
+    <head><!-- child sub root of the html tag as head tag  -->
+        <!-- it is a title tag -->
+        <title>Navigation Bar</title>
+        <!--Bootstrap files: jquery, js and css -->
+        <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+        <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+        <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        
+        <style>
+            body 
+            {
+            font-family: "Lato", sans-serif;
+            }
+
+            /*applying the style to side navigation bar*/
+            .sidenav 
+            {
+            display: none;
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            padding-top: 60px;
+            }
+
+            /*Applyinh styles to links under side navigation*/
+            .sidenav a 
+            {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            }
+            .sidenav a:hover, .offcanvas a:focus
+            {
+            color: #f1f1f1;
+            }
+            .sidenav .closebtn 
+            {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+            }
+            
+            @media screen and (max-height: 450px) 
+            {
+            .sidenav {padding-top: 15px;}
+            .sidenav a {font-size: 18px;}
+            }
+        </style>
+    </head>
+
+    <!-- it is a body tag -->
+    <body>
+        <!--Actual side navigation bar -->
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </div>
+
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Navigation Bar</span>
+        
+        <script>
+
+        /*Opening and closing navigation bar events*/
+        function openNav() 
+        {
+        document.getElementById("mySidenav").style.display = "block";
+        }
+        function closeNav() 
+        {
+        document.getElementById("mySidenav").style.display = "none";
+        }
+
+        $(document).ready(function()
+        {
+        document.getElementById("mySidenav").style.display = "block";
+            if ($(window).width() < 300 && $(window).load()) 
+            {
+            document.getElementById("mySidenav").style.display = "none";
+            }
+        
+            if($(window).load())
+            {
+                if ($(window).width() < 300) 
+                {
+                document.getElementById("mySidenav").style.display = "none";
+                }
+            }
+
+        $(window).resize(function() 
+        {
+        if ($(window).width() < 300 && $(window).load()) 
+            {
+            document.getElementById("mySidenav").style.display = "none";
+            }
+        else
+        {
+        document.getElementById("mySidenav").style.display = "block";
+        }
+    
+        if($(window).load())
+        {
+            if ($(window).width() < 300) 
+            {
+            document.getElementById("mySidenav").style.display = "none";
+            }
+        }
+        else
+        {
+        document.getElementById("mySidenav").style.display = "block";
+        }
+        });
+        });
+        </script>
+    </body>
+</html>
